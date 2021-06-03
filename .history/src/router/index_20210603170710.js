@@ -9,8 +9,8 @@ const routes = [
     component: Home
   },
   {
-    path: '/pokemon/:id',
-    name: 'pokemon',
+    path: '/about/:name',
+    name: 'About',
     component: About,
   }
 ]

@@ -4,9 +4,7 @@
     <div class="row justify-content-center">
       <div class="col-md-6 col-lg-4">
         <div class="card overflow-hidden shadow ">
-          <div class="text-center">
-            <img class="img-size" :src="image" alt="" />
-          </div>
+          <img class="img-size" :src="image" alt="" />
           <h1 class="text-center">{{ result.name }}</h1>
           <hr class="separator" />
           <p class="text-center">

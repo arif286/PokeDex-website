@@ -1,12 +1,12 @@
 <template>
   <div class="home">
-    <input @keyup="update" type="text" placeholder="search pokemon..." />
+    <input @keyup="update" type="text" :placeholder="serach" />
   </div>
   <div class="container">
     <div class="row">
       <div
         class="col-md-4 pb-4"
-        v-for="(pokemon, index) in pokemons"
+        v-for="(pokimon, index) in pokimons"
         :key="index"
       >
         <div class="card">
@@ -17,10 +17,12 @@
             "
             alt=""
           />
-          <h3 class="text-center">{{ pokemon.name }}</h3>
-          <button @click="handleView(pokemon.name)" class="btn btn-danger">
-            View details
-          </button>
+          <h3 class="text-center">{{ pokimon.name }}</h3>
+          <router-link :to="{ name: 'pokimon', params: pokimon.name }">
+            <button @click="handleView(pokimon.name)" class="btn btn-danger">
+              View details
+            </button>
+          </router-link>
         </div>
       </div>
     </div>
@@ -37,7 +39,8 @@ export default {
   // }
   data() {
     return {
-      pokemons: null,
+      serach: "Pokimon",
+      pokimons: null,
     };
   },
   methods: {
@@ -49,13 +52,13 @@ export default {
     },
     handleView(name) {
       console.log(name);
-      this.$router.push({ name: "pokemon", params: { id: name } });
+      // router.push({ path: "/about", params: { name } });
     },
   },
   created() {
     axios.get(`https://pokeapi.co/api/v2/pokemon/?limit=30`).then((res) => {
-      this.pokemons = res.data.results;
-      console.log(this.pokemons);
+      this.pokimons = res.data.results;
+      console.log(this.pokimons);
     });
   },
 };

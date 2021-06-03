@@ -2,43 +2,40 @@
   <div class="about">
     <h1>This is an about page</h1>
     <div class="row justify-content-center">
-      <div class="col-md-6 col-lg-4">
-        <div class="card overflow-hidden shadow ">
-          <div class="text-center">
-            <img class="img-size" :src="image" alt="" />
-          </div>
+      <div class="col-md-5 col-lg-4">
+        <div class="card shadow">
+          <img :src="image" alt="" />
           <h1 class="text-center">{{ result.name }}</h1>
           <hr class="separator" />
           <p class="text-center">
-            <span class="hp">HP {{ result.stats[0].base_stat }}</span>
-            <span class="xp">XP {{ result.base_experience }}</span>
+            <span class="hp"
+              >HP
+              {{ Math.floor(Math.floor() * result.stats[0]?.base_stats) }}</span
+            >
+            <span class="xp">XP {{}}</span>
           </p>
           <div class="row card-body">
-            <div class="col text-center">
-              <p>type</p>
-              <p>
-                {{ result.types[0].type.name }}/{{ result.types[1].type.name }}
-              </p>
+            <div class="col">
+              <p></p>
+              <p>Electric{{}}</p>
             </div>
-            <div class="col text-center">
+            <div class="col">
               <p>weight</p>
               <p>{{ result.weight }}g</p>
             </div>
-            <div class="col text-center">
-              <p>height</p>
+            <div class="col">
+              <span>height</span>
               <p>{{ result.height }}mm</p>
             </div>
           </div>
-          <div class="row stardust_update">
-            <div class="col text-center">
-              <p>
-                {{ Math.floor(Math.random() * 100000 + 1) }}
-              </p>
+          <div class="row card-body">
+            <div class="col">
               <p>stardust</p>
+              <p>5000{{}}</p>
             </div>
-            <div class="col text-center">
-              <p>{{ Math.floor(Math.random() * 100) }}</p>
-              <p>{{ result.name }} Candy</p>
+            <div class="col">
+              <p>pikacu</p>
+              <p>1</p>
             </div>
           </div>
         </div>
@@ -78,19 +75,5 @@ export default {
   width: 200px;
   margin-left: auto;
   margin-right: auto;
-}
-.xp {
-  padding: 0px 15px;
-}
-.hp {
-  border-right: 1px solid gray;
-  padding: 0px 15px;
-}
-.stardust_update {
-  border-top: 1px solid gray;
-}
-.img-size {
-  width: 200px;
-  height: 200px;
 }
 </style>
