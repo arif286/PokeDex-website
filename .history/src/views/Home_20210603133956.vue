@@ -5,23 +5,16 @@
   <div class="container">
     <div class="row">
       <div
-        class="col-md-4 pb-4"
+        class="col-md-4 card"
         v-for="(pokimon, index) in pokimons"
         :key="index"
       >
-        <div class="card">
-          <img
-            class="w-100"
-            :src="
-              `http://pokeres.bastionbot.org/images/pokemon/${index + 1}.png`
-            "
-            alt=""
-          />
-          <h3 class="text-center">{{ pokimon.name }}</h3>
-          <button @click="handleView" class="btn btn-danger">
-            View details
-          </button>
-        </div>
+        <img
+          class="w-100"
+          :src="`http://pokeres.bastionbot.org/images/pokemon/${index + 1}.png`"
+          alt=""
+        />
+        <h3 class="text-center">{{ pokimon.name }}</h3>
       </div>
     </div>
   </div>
@@ -43,13 +36,12 @@ export default {
   },
   methods: {
     update(e) {
-      console.log("name", e.target.value);
-      fetch(`https://pokeapi.co/api/v2/pokemon/${e.target.value}?limit=150`)
-        .then((res) => res.json())
-        .then((data) => console.log(data));
-    },
-    handleView() {
-      console.log("click");
+      {
+        console.log("name", e.target.value);
+        fetch(`https://pokeapi.co/api/v2/pokemon/${e.target.value}?limit=150`)
+          .then((res) => res.json())
+          .then((data) => console.log(data));
+      }
     },
   },
   created() {
@@ -64,9 +56,5 @@ export default {
 .home input {
   margin-top: 50px;
   padding: 10px;
-  margin-bottom: 50px;
-}
-.home {
-  text-align: center;
 }
 </style>

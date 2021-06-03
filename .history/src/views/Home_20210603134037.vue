@@ -18,9 +18,6 @@
             alt=""
           />
           <h3 class="text-center">{{ pokimon.name }}</h3>
-          <button @click="handleView" class="btn btn-danger">
-            View details
-          </button>
         </div>
       </div>
     </div>
@@ -43,13 +40,12 @@ export default {
   },
   methods: {
     update(e) {
-      console.log("name", e.target.value);
-      fetch(`https://pokeapi.co/api/v2/pokemon/${e.target.value}?limit=150`)
-        .then((res) => res.json())
-        .then((data) => console.log(data));
-    },
-    handleView() {
-      console.log("click");
+      {
+        console.log("name", e.target.value);
+        fetch(`https://pokeapi.co/api/v2/pokemon/${e.target.value}?limit=150`)
+          .then((res) => res.json())
+          .then((data) => console.log(data));
+      }
     },
   },
   created() {
@@ -64,9 +60,5 @@ export default {
 .home input {
   margin-top: 50px;
   padding: 10px;
-  margin-bottom: 50px;
-}
-.home {
-  text-align: center;
 }
 </style>
