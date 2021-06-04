@@ -10,11 +10,6 @@
       <input @click="update" class="search-btn" type="submit" value="Search" />
     </div>
   </div>
-  <div v-if="failed" class="container">
-    <div class="alert alert-danger">
-      Pokemon Not Found
-    </div>
-  </div>
   <div v-if="load" class="container">
     <div class="row">
       <div
@@ -65,7 +60,6 @@ export default {
       searchData: {},
       image: "",
       load: true,
-      failed: false,
     };
   },
   methods: {
@@ -77,12 +71,9 @@ export default {
             this.searchData = res.data;
             this.image = res.data.sprites.other.dream_world.front_default;
             this.load = false;
-            this.failed = false;
+            console.log("err", res.status);
           })
-          .catch((err) => {
-            this.failed = true;
-            console.log(this.failed);
-          });
+          .catch((err) => console.log("err.msg", err.massage));
       }
     },
     handleView(name) {

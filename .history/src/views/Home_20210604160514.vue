@@ -10,10 +10,8 @@
       <input @click="update" class="search-btn" type="submit" value="Search" />
     </div>
   </div>
-  <div v-if="failed" class="container">
-    <div class="alert alert-danger">
-      Pokemon Not Found
-    </div>
+  <div v-if="failed" class="alert alert-danger">
+    Pokemon Not Found
   </div>
   <div v-if="load" class="container">
     <div class="row">

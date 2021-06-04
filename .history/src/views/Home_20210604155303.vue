@@ -10,11 +10,6 @@
       <input @click="update" class="search-btn" type="submit" value="Search" />
     </div>
   </div>
-  <div v-if="failed" class="container">
-    <div class="alert alert-danger">
-      Pokemon Not Found
-    </div>
-  </div>
   <div v-if="load" class="container">
     <div class="row">
       <div
@@ -65,7 +60,6 @@ export default {
       searchData: {},
       image: "",
       load: true,
-      failed: false,
     };
   },
   methods: {
@@ -74,15 +68,12 @@ export default {
         axios
           .get(`https://pokeapi.co/api/v2/pokemon/${this.search}`)
           .then((res) => {
+            console.log(res);
             this.searchData = res.data;
             this.image = res.data.sprites.other.dream_world.front_default;
             this.load = false;
-            this.failed = false;
           })
-          .catch((err) => {
-            this.failed = true;
-            console.log(this.failed);
-          });
+          .catch((err) => console.log(err.massage));
       }
     },
     handleView(name) {
