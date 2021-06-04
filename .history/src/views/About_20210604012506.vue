@@ -1,5 +1,5 @@
 <template>
-  <div key="result.id" class="about">
+  <div class="about">
     <h1 class="text-center mb-5">PokeDex</h1>
     <div class="row justify-content-center">
       <div class="col-md-6 col-lg-4">
@@ -10,7 +10,7 @@
           <h1 class="text-center">{{ result.name }}</h1>
           <hr class="separator" />
           <p class="text-center">
-            <span class="hp">HP {{ result.stats[0].base_stat }}</span>
+            <!-- <span class="hp">HP {{ result.stats[0].base_stat }}</span> -->
             <span class="xp">XP {{ result.base_experience }}</span>
           </p>
           <div class="row card-body">
@@ -57,10 +57,11 @@ export default {
       image: null,
     };
   },
+  methods: {},
   created() {
     axios.get(`https://pokeapi.co/api/v2/pokemon/${this.id}`).then((res) => {
       this.result = res.data;
-      console.log(res);
+      console.log(this.result);
       this.image = res.data.sprites.other.dream_world.front_default;
     });
   },
@@ -91,4 +92,8 @@ export default {
   width: 200px;
   height: 200px;
 }
+/* .update {
+  border-bottom: 1px solid gray;
+  padding-bottom: none;
+} */
 </style>

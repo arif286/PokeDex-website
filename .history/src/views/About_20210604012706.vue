@@ -1,5 +1,5 @@
 <template>
-  <div key="result.id" class="about">
+  <div class="about">
     <h1 class="text-center mb-5">PokeDex</h1>
     <div class="row justify-content-center">
       <div class="col-md-6 col-lg-4">
@@ -91,4 +91,8 @@ export default {
   width: 200px;
   height: 200px;
 }
+/* .update {
+  border-bottom: 1px solid gray;
+  padding-bottom: none;
+} */
 </style>

@@ -91,4 +91,8 @@ export default {
   width: 200px;
   height: 200px;
 }
+/* .update {
+  border-bottom: 1px solid gray;
+  padding-bottom: none;
+} */
 </style>

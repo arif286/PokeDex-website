@@ -1,5 +1,5 @@
 <template>
-  <div key="result.id" class="about">
+  <div class="about">
     <h1 class="text-center mb-5">PokeDex</h1>
     <div class="row justify-content-center">
       <div class="col-md-6 col-lg-4">
@@ -15,17 +15,17 @@
           </p>
           <div class="row card-body">
             <div class="col text-center">
-              <p>type</p>
+              <p class="update">type</p>
               <p>
                 {{ result.types[0].type.name }}/{{ result.types[1].type.name }}
               </p>
             </div>
             <div class="col text-center">
-              <p>weight</p>
+              <p class="update">weight</p>
               <p>{{ result.weight }}g</p>
             </div>
             <div class="col text-center">
-              <p>height</p>
+              <p class="update">height</p>
               <p>{{ result.height }}mm</p>
             </div>
           </div>
@@ -57,10 +57,11 @@ export default {
       image: null,
     };
   },
+  methods: {},
   created() {
     axios.get(`https://pokeapi.co/api/v2/pokemon/${this.id}`).then((res) => {
       this.result = res.data;
-      console.log(res);
+      console.log(this.result);
       this.image = res.data.sprites.other.dream_world.front_default;
     });
   },
@@ -68,6 +69,7 @@ export default {
 </script>
 <style scoped>
 .separator {
+  color: #6eecb7 !important;
   border-radius: 5px;
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -90,5 +92,9 @@ export default {
 .img-size {
   width: 200px;
   height: 200px;
+}
+.update {
+  border-bottom: 1px solid gray;
+  padding-bottom: 0px;
 }
 </style>

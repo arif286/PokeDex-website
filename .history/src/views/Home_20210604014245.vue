@@ -1,16 +1,16 @@
 <template>
-  <div class="row mb-5 mt-5 justify-content-center">
+  <div class="row mb-5 mt-5">
     <div class="d-flex col-md-5 col-lg-4">
       <input
-        v-model="search"
+        @keyup="update"
         class="form-control searchBar"
         type="text"
-        placeholder="Search pokemon..."
+        placeholder="search pokemon..."
       />
-      <input @click="update" class="search-btn" type="submit" value="Search" />
+      <input class="search-btn" type="submit" value="Search" />
     </div>
   </div>
-  <div v-if="load" class="container">
+  <div class="container">
     <div class="row">
       <div
         class="col-md-4 pb-4"
@@ -33,19 +33,6 @@
       </div>
     </div>
   </div>
-  <div v-if="!load" :key="searchData.id" class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-5 col-lg-4">
-        <div class="card shadow">
-          <img class="w-100" :src="image" alt="" />
-          <h3 class="text-center">{{ searchData.name }}</h3>
-          <button @click="handleView(searchData.name)" class="btn btn-danger">
-            View details
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
 </template>
 
 <script>
@@ -53,28 +40,20 @@ import axios from "axios";
 
 export default {
   name: "Home",
+  // components: {
+  //   HelloWorld
+  // }
   data() {
     return {
       pokemons: null,
-      search: "",
-      searchData: {},
-      image: "",
-      load: true,
     };
   },
   methods: {
-    update() {
-      if (this.search) {
-        console.log(this.search);
-        axios
-          .get(`https://pokeapi.co/api/v2/pokemon/${this.search}`)
-          .then((res) => {
-            console.log(res);
-            this.searchData = res.data;
-            this.image = res.data.sprites.other.dream_world.front_default;
-            this.load = false;
-          });
-      }
+    update(e) {
+      console.log("name", e.target.value);
+      fetch(`https://pokeapi.co/api/v2/pokemon/${e.target.value}?limit=150`)
+        .then((res) => res.json())
+        .then((data) => console.log(data));
     },
     handleView(name) {
       console.log(name);
@@ -84,7 +63,7 @@ export default {
   created() {
     axios.get(`https://pokeapi.co/api/v2/pokemon/?limit=30`).then((res) => {
       this.pokemons = res.data.results;
-      // console.log(this.pokemons);
+      console.log(this.pokemons);
     });
   },
 };
@@ -109,9 +88,12 @@ export default {
   display: inline-block;
   width: 100px;
   padding: 7px;
+  border-radius: 50px;
   color: #fff;
   border: none;
   font-weight: 300;
+  position: absolute;
+  right: 0;
   margin-right: 15px;
 }
 </style>

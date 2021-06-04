@@ -34,15 +34,13 @@
     </div>
   </div>
   <div v-if="!load" :key="searchData.id" class="container">
-    <div class="row justify-content-center">
+    <div class="row">
       <div class="col-md-5 col-lg-4">
-        <div class="card shadow">
-          <img class="w-100" :src="image" alt="" />
-          <h3 class="text-center">{{ searchData.name }}</h3>
-          <button @click="handleView(searchData.name)" class="btn btn-danger">
-            View details
-          </button>
-        </div>
+        <img :src="image" alt="" />
+        <h3>{{ searchData.name }}</h3>
+        <button @click="handleView(searchData.name)" class="btn btn-danger">
+          View details
+        </button>
       </div>
     </div>
   </div>
