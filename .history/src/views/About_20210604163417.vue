@@ -1,5 +1,5 @@
 <template>
-  <div v-if="result" key="result.id" class="about">
+  <div key="result.id" class="about">
     <h1 class="text-center mb-5">PokeDex</h1>
     <div class="row justify-content-center">
       <div class="col-md-6 col-lg-4">
@@ -55,11 +55,11 @@ export default {
   data() {
     return {
       id: this.$route.params.id,
-      result: null,
+      result: {},
       image: null,
     };
   },
-  mounted() {
+  created() {
     axios.get(`https://pokeapi.co/api/v2/pokemon/${this.id}`).then((res) => {
       console.log(res.data);
       this.result = res.data;
