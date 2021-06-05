@@ -113,7 +113,5 @@ export default {
 }
 .about {
   background-color: #efefef;
-  overflow: hidden;
-  height: 100vh;
 }
 </style>

@@ -111,9 +111,4 @@ export default {
 .details-card {
   border-radius: 10px;
 }
-.about {
-  background-color: #efefef;
-  overflow: hidden;
-  height: 100vh;
-}
 </style>

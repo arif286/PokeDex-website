@@ -1,12 +1,12 @@
 <template>
   <div v-if="result" key="result.id" class="about">
-    <h1 class="text-center mb-4 mt-3">PokeDex</h1>
+    <h1 class="text-center mb-5">PokeDex</h1>
     <div class="row justify-content-center">
-      <div class="col-md-6 px-2 col-lg-4">
+      <div class="col-md-6 col-lg-4">
         <div
           data-aos="fade-in"
           data-aos-duration="1000"
-          class="card overflow-hidden shadow details-card"
+          class="card overflow-hidden shadow "
         >
           <div class="text-center">
             <img class="img-size" :src="image" alt="" />
@@ -17,7 +17,6 @@
             <span class="hp">HP {{ result.stats[0].base_stat }}</span>
             <span class="xp">XP {{ result.base_experience }}</span>
           </p>
-          <button class="transfer-btn">TRANSFER</button>
           <div class="row card-body">
             <div class="col text-center">
               <p>type</p>
@@ -75,7 +74,6 @@ export default {
 </script>
 <style scoped>
 .separator {
-  color: #04fe00fc;
   border-radius: 5px;
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -98,22 +96,5 @@ export default {
 .img-size {
   width: 200px;
   height: 200px;
-}
-.transfer-btn {
-  padding: 15px 30px;
-  background: linear-gradient(to right, #9eda93, #22cba8);
-  border-radius: 25px;
-  border: none;
-  color: #fff;
-  width: 200px;
-  margin: auto;
-}
-.details-card {
-  border-radius: 10px;
-}
-.about {
-  background-color: #efefef;
-  overflow: hidden;
-  height: 100vh;
 }
 </style>

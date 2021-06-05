@@ -15,7 +15,7 @@
       Pokemon Not Found
     </div>
   </div>
-  <div v-if="load" class="container mt-3">
+  <div v-if="load" class="container">
     <div class="row">
       <div
         class="col-md-4 col-sm-6 col-lg-3 pb-4"

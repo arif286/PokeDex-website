@@ -1,8 +1,8 @@
 <template>
   <div v-if="result" key="result.id" class="about">
-    <h1 class="text-center mb-4 mt-3">PokeDex</h1>
+    <h1 class="text-center mb-5">PokeDex</h1>
     <div class="row justify-content-center">
-      <div class="col-md-6 px-2 col-lg-4">
+      <div class="col-md-6 col-lg-4">
         <div
           data-aos="fade-in"
           data-aos-duration="1000"
@@ -110,10 +110,5 @@ export default {
 }
 .details-card {
   border-radius: 10px;
-}
-.about {
-  background-color: #efefef;
-  overflow: hidden;
-  height: 100vh;
 }
 </style>

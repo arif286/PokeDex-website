@@ -15,19 +15,14 @@
       Pokemon Not Found
     </div>
   </div>
-  <div v-if="load" class="container mt-3">
+  <div v-if="load" class="container">
     <div class="row">
       <div
         class="col-md-4 col-sm-6 col-lg-3 pb-4"
         v-for="(pokemon, index) in pokemons"
         :key="index"
       >
-        <div
-          data-aos="zoom-in"
-          data-aos-duration="1000"
-          @click="handleView(pokemon.name)"
-          class="card shadow pokemon-card"
-        >
+        <div class="card shadow pokemon-card">
           <img
             class="w-100"
             :src="
@@ -36,7 +31,7 @@
             alt=""
           />
           <h3 class="text-center">{{ pokemon.name }}</h3>
-          <button class="btn btn-danger">
+          <button @click="handleView(pokemon.name)" class="btn btn-danger">
             View details
           </button>
         </div>
@@ -97,7 +92,7 @@ export default {
   },
   mounted() {
     axios
-      .get(`https://pokeapi.co/api/v2/pokemon/?limit=32`)
+      .get(`https://pokeapi.co/api/v2/pokemon/?limit=30`)
       .then((res) => {
         this.pokemons = res.data.results;
       })
@@ -129,9 +124,6 @@ export default {
   border: none;
   font-weight: 300;
   margin-right: 15px;
-}
-.pokemon-card {
-  background: antiquewhite;
 }
 .pokemon-card:hover {
   transform: scale(1.1);

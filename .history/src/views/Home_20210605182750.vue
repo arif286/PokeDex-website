@@ -15,7 +15,7 @@
       Pokemon Not Found
     </div>
   </div>
-  <div v-if="load" class="container mt-3">
+  <div v-if="load" class="container">
     <div class="row">
       <div
         class="col-md-4 col-sm-6 col-lg-3 pb-4"
@@ -24,7 +24,6 @@
       >
         <div
           data-aos="zoom-in"
-          data-aos-duration="1000"
           @click="handleView(pokemon.name)"
           class="card shadow pokemon-card"
         >
